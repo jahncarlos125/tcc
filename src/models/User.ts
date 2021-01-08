@@ -37,14 +37,14 @@ class User {
   @JoinColumn()
   contact: Contact;
 
-  @Column({ select: false })
+  @Column({ select: false, nullable: true })
   contactId: string;
 
   @ManyToOne(() => Social, social => social.user)
   @JoinColumn()
   social: Social;
 
-  @Column({ select: false })
+  @Column({ select: false, nullable: true })
   socialId: string;
 }
 

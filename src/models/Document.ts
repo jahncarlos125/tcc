@@ -11,16 +11,16 @@ class Document {
   @Column()
   rg: number;
 
-  @Column()
+  @Column({ nullable: true })
   cnh: string;
 
-  @Column()
+  @Column({ nullable: true })
   pis: string;
 
-  @Column()
+  @Column({ nullable: true })
   title: string;
 
-  @Column()
+  @Column({ nullable: true })
   reservist: string;
 }
 

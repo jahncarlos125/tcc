@@ -12,16 +12,16 @@ class Social {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({ nullable: true })
   facebook: string;
 
-  @Column()
+  @Column({ nullable: true })
   instagram: string;
 
-  @Column()
+  @Column({ nullable: true })
   linkedin: string;
 
-  @Column()
+  @Column({ nullable: true })
   github: string;
 
   @OneToMany(() => User, user => user.social, {

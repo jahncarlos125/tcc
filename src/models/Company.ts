@@ -24,7 +24,7 @@ class Company {
   @Column()
   password: string;
 
-  @Column()
+  @Column({ nullable: true })
   token: string;
 
   @ManyToOne(() => State, state => state.company)
