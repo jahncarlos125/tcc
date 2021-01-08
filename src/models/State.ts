@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import Company from './Company';
 
-@Entity('states')
+@Entity()
 class State {
   @PrimaryGeneratedColumn('uuid')
   id: string;

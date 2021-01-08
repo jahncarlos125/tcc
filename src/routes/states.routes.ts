@@ -7,7 +7,7 @@ const statesRouter = Router();
 
 statesRouter.get('/', async (request, response) => {
   const statesRepository = getCustomRepository(StatesRepository);
-  const states = await statesRepository.find({ relations: ['company'] });
+  const states = await statesRepository.find();
 
   return response.json(states);
 });

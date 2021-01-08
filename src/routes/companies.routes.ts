@@ -8,7 +8,10 @@ const companiesRouter = Router();
 
 companiesRouter.get('/', async (request, response) => {
   const companiesRepository = getCustomRepository(CompaniesRepository);
-  const companies = await companiesRepository.find({ relations: ['state'] });
+  const companies = await companiesRepository
+    .createQueryBuilder('company')
+    .leftJoinAndSelect('company.state', 'state')
+    .getMany();
 
   return response.json(companies);
 });

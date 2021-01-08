@@ -11,7 +11,7 @@ import Contact from './Contact';
 import Document from './Document';
 import Social from './Social';
 
-@Entity('users')
+@Entity()
 class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -37,14 +37,14 @@ class User {
   @JoinColumn()
   contact: Contact;
 
-  @Column()
+  @Column({ select: false })
   contactId: string;
 
   @ManyToOne(() => Social, social => social.user)
   @JoinColumn()
   social: Social;
 
-  @Column()
+  @Column({ select: false })
   socialId: string;
 }
 
