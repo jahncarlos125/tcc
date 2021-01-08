@@ -7,25 +7,25 @@ import {
 } from 'typeorm';
 import State from './State';
 
-@Entity('companies')
-class Company {
+@Entity('address')
+class Address {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  name: string;
+  street: string;
 
   @Column()
-  document: string;
+  number: number;
 
   @Column()
-  email: string;
+  neighboard: string;
 
   @Column()
-  password: string;
+  city: string;
 
   @Column()
-  token: string;
+  primary: boolean;
 
   @ManyToOne(() => State, state => state.company)
   @JoinColumn()
@@ -35,4 +35,4 @@ class Company {
   stateId: string;
 }
 
-export default Company;
+export default Address;

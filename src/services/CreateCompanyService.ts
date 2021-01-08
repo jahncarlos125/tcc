@@ -10,6 +10,7 @@ interface Request {
   email: string;
   password: string;
   token: string;
+  stateId: string;
 }
 
 class CreateCompanyService {
@@ -19,6 +20,7 @@ class CreateCompanyService {
     email,
     password,
     token,
+    stateId,
   }: Request): Promise<Company> {
     const companiesRepository = getCustomRepository(CompaniesRepository);
 
@@ -29,7 +31,7 @@ class CreateCompanyService {
     });
 
     if (findCompanyWithSameEmail) {
-      throw new AppError('This company is already booked');
+      throw new AppError('This company is already booked', 409);
     }
 
     const company = companiesRepository.create({
@@ -38,6 +40,7 @@ class CreateCompanyService {
       company_email: email,
       company_password: password,
       company_token: token,
+      state_id: stateId,
     });
 
     await companiesRepository.save(company);
