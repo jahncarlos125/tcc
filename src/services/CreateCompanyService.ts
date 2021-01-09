@@ -26,7 +26,7 @@ class CreateCompanyService {
 
     const findCompanyWithSameEmail = await companiesRepository.findOne({
       where: {
-        company_email: email,
+        email,
       },
     });
 
@@ -35,12 +35,12 @@ class CreateCompanyService {
     }
 
     const company = companiesRepository.create({
-      company_name: name,
-      company_document: document,
-      company_email: email,
-      company_password: password,
-      company_token: token,
-      state_id: stateId,
+      name,
+      document,
+      email,
+      password,
+      token,
+      stateId,
     });
 
     await companiesRepository.save(company);
